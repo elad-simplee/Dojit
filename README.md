@@ -22,7 +22,9 @@ Things you may want to cover:
 
 * Deployment instructions
 
-* ...
+* Deployment location
+the app is located on heroku url: https://dojit.herokuapp.com/
+[direct link](https://dojit.herokuapp.com/ "Dojit")
 
 
 Please feel free to use a different markup language if you do not plan to run
