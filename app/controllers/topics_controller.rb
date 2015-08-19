@@ -37,7 +37,7 @@ class TopicsController < ApplicationController
     if @topic.update_attributes(topic_params)
 
       flash[:notice] = "Topic was saved seccussfully"
-      redirect_to @post
+      redirect_to @topic
     else
       flash[:error] = "There was an error saving the post. Please try again."
       render :edit
