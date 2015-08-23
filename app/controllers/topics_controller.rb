@@ -39,8 +39,22 @@ class TopicsController < ApplicationController
       flash[:notice] = "Topic was saved seccussfully"
       redirect_to @topic
     else
-      flash[:error] = "There was an error saving the post. Please try again."
+      flash[:error] = "There was an error saving the topic. Please try again."
       render :edit
+    end
+  end
+
+  def destroy
+    @topic = Topic.find(params[:id])
+    name = @topic.name
+    authorize @topic
+
+    if @topic.destroy
+      flash[:notice] =  "Topic \"#{name}\" was deleted successfully."
+      redirect_to topics_path
+    else
+      flash[:error] = "There was an error removing the topic. Please try again."
+      render :show
     end
   end
 
