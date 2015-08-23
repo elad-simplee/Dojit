@@ -14,9 +14,8 @@ class CommentsController < ApplicationController
     end
   end
 
-  def post_url (params)
-    @post = Post.find(params[:post_id])
-    @post.url
+  def post_url (post)
+    url_for([post.topic, post])
   end
 
   private

@@ -17,26 +17,24 @@
   </div>
 </div>
 
-
-<h3>Comments:</h3>
-<% @comments.each do |comment| %>
-<div class="col-md-7">
-  <h6>
-    <%= markdown comment.body%> 
-  </h6>
-  <small>
-    <%= image_tag(comment.user.avatar.tiny.url) if comment.user.avatar? %>
-    submitted <%= time_ago_in_words(comment.created_at) %> ago by <%= comment.user.name %> <br/>
-  </small>
-</div>
-<% end %>
-<%= will_paginate @comments %>
-
-<h3>Write new comment:</h3>
 <div class="row">
   <div class="col-md-8">
-  <%= render partial: 'comments/form', locals: {topic: @topic, post: @post, comment: @post.comments.new} %>
-  </div>
+    <h4>Comments:</h4>
+    <% @comments.each do |comment| %>
+      <%= render partial: "comments/comment", locals: {comment: comment} %>
+    <% end %>
+  </div>  
+</div>
+<div class="row">
+  <%= will_paginate @comments %>
 </div>
 
+
+<div class="row">
+  <h3>Write new comment:</h3>
+</div>
+<div class="row">
+  <div class="col-md-8">
+    <%= render partial: 'comments/form', locals: {topic: @topic, post: @post, comment: @post.comments.new} %>
+  </div>
 </div>

@@ -1,0 +1,10 @@
+<div class="col-md-7">
+  <small>
+    <%= image_tag(comment.user.avatar.tiny.url) if comment.user.avatar? %>
+    comment by <%= comment.user.name %>, <%= time_ago_in_words(comment.created_at) %> ago <br/>
+  </small>
+  <h6>
+    <%= markdown comment.body%> 
+  </h6>
+  <br/>
+</div>
