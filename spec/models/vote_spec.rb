@@ -1,10 +1,13 @@
+require 'rails_helper'
+
 describe Vote do
   describe "validations" do
-        before do 
-          @vote_true = Vote.new(value: 1)
-          @vote_false = Vote.new(value: -1)
-          @invalid_vote = Vote.new(value: 2)
-
+    before do 
+      @vote_true = Vote.new(value: 1)
+      @vote_false = Vote.new(value: -1)
+      @invalid_vote = Vote.new(value: 2)
+    end
+    
     describe "value validation" do
       it "only allows -1 or 1 as values" do
         expect(@vote_true.valid?).to eq true
