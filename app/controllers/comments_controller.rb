@@ -21,7 +21,6 @@ class CommentsController < ApplicationController
     @comment = @post.comments.find(params[:id])
 
     authorize @comment
-    puts "@@@@@@@@@@@@@"
     if @comment.destroy
       flash[:notice] = "Comment was removed."
       redirect_to [@topic, @post]
